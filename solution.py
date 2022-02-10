@@ -115,7 +115,7 @@ def ping(host, timeout=1):
         # print("")
         # Calculate vars values and return them
         #  vars = [str(round(packet_min, 2)), str(round(packet_avg, 2)), str(round(packet_max, 2)),str(round(stdev(stdev_var), 2))]
-        
+
         returnTimes = []
 
         # Send ping requests to a server separated by approximately one second
@@ -133,9 +133,12 @@ def ping(host, timeout=1):
         packet_avg = str(round((sum(returnTimes)/len(returnTimes)),2))
         stdev_var = str(round(stdev(returnTimes),2))
 
+        # print(packet_min)
+        # print(packet_max)
+
         # vars = [str(round(packet_min, 2)), str(round(packet_avg, 2)), str(round(packet_max, 2)),str(round(stdev(stdev_var), 2))]
 
-        vars = [packet_min, packet_max, packet_avg, stdev_var]
+        vars = [packet_min, packet_avg, packet_max, stdev_var]
         return vars
 
     except error:
